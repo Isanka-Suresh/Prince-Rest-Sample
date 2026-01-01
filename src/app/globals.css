@@ -1,0 +1,276 @@
+@import "tailwindcss";
+
+/* === Custom CSS Variables for Prince Rest Theme === */
+:root {
+  /* Primary Colors - Burgundy/Wine */
+  --color-primary: #722F37;
+  --color-primary-light: #8B4049;
+  --color-primary-dark: #5A252C;
+  
+  /* Secondary Colors - Gold */
+  --color-secondary: #D4AF37;
+  --color-secondary-light: #E5C76B;
+  --color-secondary-dark: #B8941F;
+  
+  /* Neutral Colors */
+  --color-cream: #FDF8F3;
+  --color-cream-dark: #F5EDE4;
+  --color-charcoal: #1C1C1C;
+  --color-charcoal-light: #2D2D2D;
+  
+  /* Text Colors */
+  --color-text-primary: #1C1C1C;
+  --color-text-secondary: #666666;
+  --color-text-light: #999999;
+  
+  /* Background */
+  --background: #ffffff;
+  --foreground: #1C1C1C;
+}
+
+@theme inline {
+  --color-primary: var(--color-primary);
+  --color-primary-light: var(--color-primary-light);
+  --color-primary-dark: var(--color-primary-dark);
+  --color-secondary: var(--color-secondary);
+  --color-secondary-light: var(--color-secondary-light);
+  --color-secondary-dark: var(--color-secondary-dark);
+  --color-cream: var(--color-cream);
+  --color-cream-dark: var(--color-cream-dark);
+  --color-charcoal: var(--color-charcoal);
+  --color-charcoal-light: var(--color-charcoal-light);
+  --font-serif: 'Playfair Display', Georgia, serif;
+}
+
+/* === Base Styles === */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--background);
+  color: var(--foreground);
+  line-height: 1.6;
+}
+
+/* === Typography === */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+/* Stats numbers - using Inter for better readability */
+.font-stats {
+  font-family: "Abril Fatface", serif;
+  font-weight: 500;
+}
+
+/* === Custom Scrollbar === */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-cream);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-dark);
+}
+
+/* === Animations === */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0; 
+    transform: translateY(30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes slideDown {
+  from { 
+    opacity: 0; 
+    transform: translateY(-30px); 
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0); 
+  }
+}
+
+@keyframes scaleIn {
+  from { 
+    opacity: 0; 
+    transform: scale(0.9); 
+  }
+  to { 
+    opacity: 1; 
+    transform: scale(1); 
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.animate-slideUp {
+  animation: slideUp 0.8s ease-out forwards;
+}
+
+.animate-slideDown {
+  animation: slideDown 0.8s ease-out forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.5s ease-out forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+
+/* === Glass Morphism === */
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(28, 28, 28, 0.8);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* === Button Styles === */
+.btn-primary {
+  background: var(--color-primary);
+  color: white;
+  padding: 12px 32px;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  background: var(--color-primary-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(114, 47, 55, 0.3);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-secondary);
+  padding: 12px 32px;
+  border: 2px solid var(--color-secondary);
+  border-radius: 4px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background: var(--color-secondary);
+  color: var(--color-charcoal);
+  transform: translateY(-2px);
+}
+
+/* === Section Styles === */
+.section-padding {
+  padding: 100px 0;
+}
+
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* === Image Overlay === */
+.overlay {
+  position: relative;
+}
+
+.overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, rgba(28, 28, 28, 0.4), rgba(28, 28, 28, 0.7));
+  z-index: 1;
+}
+
+.overlay > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* === Card Hover Effects === */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* === Text Gradient === */
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* === Blur Background === */
+.blur-bg {
+  position: relative;
+}
+
+.blur-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  background: rgba(28, 28, 28, 0.5);
+  z-index: 1;
+}
+
+.blur-bg > * {
+  position: relative;
+  z-index: 2;
+}
